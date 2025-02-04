@@ -1,0 +1,53 @@
+Can you showcase transactions between the dates  March 02, 2024 and  May 05, 2024? 
+
+SELECT *
+FROM Transactions
+WHERE Transaction date BETWEEN 2024-04-02' AND  ‘2024-05-30’ ;
+
+
+Can you showcase Customers and each customers hair vendor? 
+
+CREATE VIEW Customers _Hair_Vendor AS
+
+SELECT
+
+hv.H_ID,
+hv. Hair_Texture,
+hv.Origin AS Vendor_Origin, hv. Length1,
+hv .Length2,
+hv .Length3,
+c.Cust_id,
+c.Cust_firstname,
+c.Cust_lastname,
+c.Origin AS Customer_Origin,
+c.Type AS Customer_Type
+
+FROM
+Hair_Vendor_List hv
+
+
+JOIN
+Customers c ON hv.H_ID = c.H_ID;
+
+
+Can you combine the delivery table and the transactions table in order to process orders more efficiently? 
+
+
+Left Join
+
+SELECT
+d. tran id,
+d. delivery_address,
+d. delivery_city,
+d. delivery_postcode,
+t. transaction _date AS transaction_date, thair_texture AS transaction hair_texture,
+ payment method AS transaction paynent method
+
+From 
+delivery_address AS d
+
+Left join 
+transactions t
+
+ON 
+d.tran_id = t.tran_id ; 
